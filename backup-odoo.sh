@@ -10,7 +10,7 @@
 # Written by: Jacob Isreal, Isreal Consulting LLC (www.icllc.cc)
 #             jisreal@icllc.cc
 #
-# Last updated: 09-01-2024
+# Last updated: 09-10-2024
 
 # vars
 BACKUP_DIR=/backup
@@ -38,7 +38,7 @@ find ${BACKUP_DIR} -type f -mtime +7 -name "${ODOO_DATABASE}.*.zip" -delete
 CURRENTDATE=`date +"%Y-%m-%d-%H-%M"`
 echo "${CURRENTDATE} - Removed backups older than 7 days." >> /root/odoo-backup.log
 
-# sync to DO Spaces on host-icllc-cc/odoo
+# sync to DO Spaces on cloud
 s3cmd sync /backup/ s3://bucketname/odoo/ --recursive --no-delete-removed
 CURRENTDATE=`date +"%Y-%m-%d-%H-%M"`
 echo "${CURRENTDATE} - Synced backups to cloud storage." >> /root/odoo-backup.log
