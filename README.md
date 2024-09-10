@@ -31,6 +31,7 @@ Be sure to prepend the script with ```sh ``` as shown above or the script won't 
 
 <br /><br/>
 ### View the project page on my website
+https://www.jinet.us/dev/scripts/bash-s3cmd-backup-odoo/
 
-
+<br /><br />
 Copyright &copy; 2024 Jacob Eiler, Isreal Consulting, LLC.  All rights reserved.
