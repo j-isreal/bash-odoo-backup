@@ -75,6 +75,3 @@ https://www.jinet.us/dev/scripts/bash-s3cmd-backup-odoo/
 <br /><br />
 Copyright &copy; 2024 Jacob Eiler, Isreal Consulting, LLC.  All rights reserved.
 
-
-<br /><br />
-Copyright &copy; 2024 Jacob Eiler, Isreal Consulting, LLC.  All rights reserved.
