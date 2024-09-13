@@ -1,5 +1,5 @@
 # bash-odoo-backup
-BASH script to backup the Odoo database and filestore locally **and** to cloud storage
+BASH script to backup the Odoo database and filestore locally **and** to s3 cloud storage
 
 **More Info on Odoo**
 
@@ -7,8 +7,16 @@ Odoo is an awesome ERP / Accounting / CRM platform!
 
 I use the community edition (open-source, self-hosted) nightly version (17.0) from their community nightly build on an Ubuntu server with Postgresql 16 and Nginx.
 
-For more info: https://www.odoo.com/page/download
-<br/><br/><br/>
+- For more info on Odoo: https://www.odoo.com/page/download
+
+- For more info on how to setup and install Odoo: [visit my website](https://www.jinet.us/dev/dev-projects/setting-up-odoo-17-ubuntu/)
+
+<br/>
+
+**REQUIRES:** curl  -  _install on Ubuntu with:_ ```apt-get install curl```
+
+<br />
+
 ## 1. Setup s3cmd and cloud storage space
 **FIRST**, either comment out the ```s3cmd``` lines, or setup s3cmd.
 
@@ -20,10 +28,14 @@ Here's a $250 credit with them:
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=7774aa9a2bfa&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 
-### 1a. Ensure your s3cfg is configured and you can access the cloud storage
-You will need your API key and secret to configure s3cmd.
+<br/>
 
-Visit [DigitalOcean](https://docs.digitalocean.com/products/spaces/reference/s3cmd/) for complete instructions.
+### 1a. Ensure your s3cfg is configured and you can access the cloud storage
+The ```s3cmd --configure``` command will setup s3cmd for you, and verify it's working.
+
+- You will need your API key and secret to configure s3cmd.
+
+- Visit [DigitalOcean](https://docs.digitalocean.com/products/spaces/reference/s3cmd/) for complete instructions.
 
 
 Use the following to setup s3cmd:
@@ -37,14 +49,17 @@ See following links for details:
 - DO Spaces using s3cmd: https://docs.digitalocean.com/products/spaces/reference/s3cmd-usage/
 - s3cmd usage: https://s3tools.org/usage
 
-## 2. Update script with Odoo Master Admin password and DB name
-Update the script variables at the top with your Odoo Master Admin password and Database name, and backup folder path:
+<br />
+
+## 2. Update script with variables
+Update the script variables at the top of the ```odoo-backup.sh``` script with your Odoo Master Admin password and Database name, backup folder path, and S3 bucket name:
 ```
 BACKUP_DIR=/backup
 ODOO_DATABASE=ENTER-DB-NAME
 ADMIN_PASSWORD=EnTerAdminPwd
 ```
 
+<br/>
 
 ## 3. Make executable, set cron for automated backup
 Make the file executable with:
@@ -70,6 +85,7 @@ crontab -e
 Be sure to prepend the script with ```sh ``` as shown above or the script won't work in cron.
 
 <br /><br/>
+
 ### View the project page on my website
 https://www.jinet.us/dev/scripts/bash-s3cmd-backup-odoo/
 <br /><br />
