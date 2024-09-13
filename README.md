@@ -57,6 +57,7 @@ Update the script variables at the top of the ```odoo-backup.sh``` script with y
 BACKUP_DIR=/backup
 ODOO_DATABASE=ENTER-DB-NAME
 ADMIN_PASSWORD=EnTerAdminPwd
+S3BUCKET_NAME=bucketname
 ```
 
 <br/>
